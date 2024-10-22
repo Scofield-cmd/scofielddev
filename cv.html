@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Développeur PHP / JS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #28a745;
+        }
+        .contact-info {
+            margin: 20px 0;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        .photo {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 3px solid #28a745;
+        }
+        .photo img {
+            width: 100%;
+            height: auto;
+        }
+        .section {
+            margin: 20px 0;
+            width: 100%;
+        }
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .skills, .experience, .education {
+            list-style: none;
+            padding: 0;
+        }
+        .skills li, .experience li, .education li {
+            background: #e9f7ef;
+            margin: 5px 0;
+            padding: 15px;
+            border-left: 5px solid #28a745;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .skills li:hover, .experience li:hover, .education li:hover {
+            background: #d4edda;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #28a745;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .container {
+                padding: 15px;
+            }
+            .photo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="photo">
+            <img src="https://via.placeholder.com/120" alt="Photo de profil">
+        </div>
+        <h1>Nom Prénom</h1>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> email@example.com</p>
+            <p><i class="fas fa-phone"></i> +33 6 12 34 56 78</p>
+            <p><i class="fas fa-map-marker-alt"></i> Ville, Pays</p>
+        </div>
+
+        <div class="section">
+            <h2>Compétences</h2>
+            <ul class="skills">
+                <li>PHP</li>
+                <li>JavaScript</li>
+                <li>MySQL</li>
+                <li>HTML / CSS</li>
+                <li>AJAX</li>
+                <li>Frameworks: Laravel, Vue.js</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Expérience</h2>
+            <ul class="experience">
+                <li>
+                    <strong>Développeur PHP</strong> - Entreprise XYZ (Janv 2022 - Présent)
+                    <p>Développement d'applications web en PHP et JavaScript.</p>
+                </li>
+                <li>
+                    <strong>Stagiaire Développeur</strong> - Entreprise ABC (Juin 2021 - Déc 2021)
+                    <p>Participation à la création d'un site de gestion de contenu.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Éducation</h2>
+            <ul class="education">
+                <li>
+                    <strong>Licence en Informatique</strong> - Université de Paris (2018 - 2021)
+                </li>
+                <li>
+                    <strong>Diplôme en Développement Web</strong> - École de Technologie (2016 - 2018)
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Nom Prénom</p>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

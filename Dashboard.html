@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Responsive avec Liens Dynamiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        /* Header - Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar-links a:hover {
+            color: #2980b9;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 60px;
+            left: -250px;
+            width: 250px;
+            height: calc(100% - 60px);
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #34495e;
+        }
+
+        /* Contenu principal */
+        .main-content {
+            margin-top: 60px;
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.active {
+            margin-left: 250px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Icône de menu (hamburger) */
+        .menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            z-index: 1100;
+        }
+
+        /* Responsive : petits écrans */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+            }
+
+            .sidebar {
+                width: 200px;
+                left: -200px;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .main-content.active {
+                margin-left: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .sidebar {
+                width: 100%;
+                left: -100%;
+            }
+
+            .sidebar.active {
+                left: 0;
+                width: 100%;
+            }
+
+            .main-content.active {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Navbar) -->
+    <header>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="navbar-brand">Mon Dashboard</div>
+        <nav class="navbar-links">
+            <a href="#">Accueil</a>
+            <a href="#">Profil</a>
+            <a href="#">Statistiques</a>
+            <a href="#">Paramètres</a>
+        </nav>
+    </header>
+
+    <!-- Barre latérale (sidebar) -->
+    <div class="sidebar">
+        <h2>Menu Dynamique</h2>
+        <ul id="dynamic-links">
+            <!-- Les liens dynamiques seront ajoutés ici -->
+        </ul>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <h1>Bienvenue sur le Dashboard</h1>
+        <p>Ceci est un tableau de bord totalement responsive, avec une barre latérale et une barre de navigation en haut pour une meilleure accessibilité. Le menu peut être activé ou désactivé via l'icône en haut à gauche.</p>
+        <p>Les liens dynamiques sur la barre latérale peuvent être ajoutés en fonction des besoins de votre projet ou des informations en temps réel.</p>
+    </div>
+
+    <script>
+        // Gestion de l'activation/désactivation du menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('active');
+        });
+
+        // Liens dynamiques générés
+        const dynamicLinks = [
+            { text: "Tableau de bord", icon: "fa-home", url: "Mon_compte.html" },
+            { text: "Utilisateurs", icon: "fa-user", url: "#" },
+            { text: "Statistiques", icon: "fa-chart-line", url: "#" },
+            { text: "Paramètres", icon: "fa-cogs", url: "#" },
+            { text: "Déconnexion", icon: "fa-sign-out-alt", url: "#" }
+        ];
+
+        // Fonction pour ajouter dynamiquement les liens à la sidebar
+        function addDynamicLinks(links) {
+            const ul = document.getElementById("dynamic-links");
+            links.forEach(link => {
+                const li = document.createElement("li");
+                li.innerHTML = `<a href="${link.url}"><i class="fas ${link.icon}"></i> ${link.text}</a>`;
+                ul.appendChild(li);
+            });
+        }
+
+        // Appel de la fonction pour ajouter les liens
+        addDynamicLinks(dynamicLinks);
+    </script>
+
+</body>
+</html>
